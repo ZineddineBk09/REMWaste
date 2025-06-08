@@ -9,7 +9,7 @@ A modern, pixel-perfect React application for selecting waste skip sizes with a 
 - **Accessibility**: Full keyboard navigation and ARIA support
 - **TypeScript**: Fully typed for better development experience
 - **Advanced Data Management**: TanStack Query for caching, background refetching, and optimistic updates
-- **Real-time Data**: Fetches skip data from WeWantWaste API with intelligent caching
+- **Real-time Data**: Fetches skip data from REMWaste API with intelligent caching
 - **Loading States**: Beautiful skeleton loading animations
 - **Error Handling**: Graceful error handling with automatic retry and exponential backoff
 - **Professional Git History**: Clean commit messages and structured development
@@ -71,7 +71,7 @@ src/
 ## 🎨 Design System
 
 ### Colors
-- **Primary**: `#FFD400` (WeWantWaste yellow)
+- **Primary**: `#FFD400` (REMWaste yellow)
 - **Secondary**: `#2E7D32` (Eco-green)
 - **Background**: Dark gradient from slate-900 to slate-800
 
@@ -94,7 +94,7 @@ src/
 
 ### API Endpoint
 ```
-https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft
+https://app.REMWaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft
 ```
 
 ### Data Structure
@@ -331,7 +331,7 @@ const { data: skips } = useQuery({
 ```typescript
 // Easy extension for different waste companies
 const { data: skips } = useQuery({
-  queryKey: ['skips', 'by-location', { postcode, area, company: 'wewantwaste' }],
+  queryKey: ['skips', 'by-location', { postcode, area, company: 'REMWaste' }],
   queryFn: () => fetchSkips({ postcode, area, company })
 });
 ```

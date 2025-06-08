@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'https://app.wewantwaste.co.uk/api';
+export const API_BASE_URL = 'https://app.REMWaste.co.uk/api';
 
 export const SKIP_IMAGES = {
   4: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center&auto=format',

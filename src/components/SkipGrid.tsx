@@ -1,19 +1,19 @@
-import React from 'react';
-import { Skeleton, Card, CardBody, Button, Alert } from '@heroui/react';
-import type { SkipGridProps } from '../types/skip';
-import { SkipCard } from './SkipCard';
+import React from "react";
+import { Skeleton, Card, CardBody, Button, Alert } from "@heroui/react";
+import type { SkipGridProps } from "../types/skip";
+import { SkipCard } from "./SkipCard";
 
 const SkipCardSkeleton: React.FC = () => (
   <Card className="w-full">
     <CardBody className="p-0">
-      <Skeleton className="w-full h-48" />
+      <Skeleton className="rounded w-full h-48" />
       <div className="p-4 space-y-3">
         <div className="flex justify-between items-start">
-          <Skeleton className="h-6 w-24" />
-          <Skeleton className="h-8 w-16" />
+          <Skeleton className="rounded-full h-6 w-24" />
+          <Skeleton className="rounded-full h-8 w-16" />
         </div>
-        <Skeleton className="h-4 w-32" />
-        <Skeleton className="h-10 w-full" />
+        <Skeleton className="rounded-full h-4 w-32" />
+        <Skeleton className="rounded-full h-10 w-full" />
       </div>
     </CardBody>
   </Card>
@@ -96,4 +96,4 @@ export const SkipGrid: React.FC<SkipGridProps> = ({
       ))}
     </div>
   );
-}; 
+};

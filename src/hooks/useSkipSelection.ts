@@ -19,7 +19,7 @@ export const useSkipSelection = (postcode: string, area: string): UseSkipSelecti
     mutationFn: async (skip: Skip) => {
       // Simulate API call for skip selection
       // In a real app, this would send the selection to the backend
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise(resolve => setTimeout(resolve, 0));
       return skip;
     },
     onMutate: async (skip: Skip) => {
@@ -47,8 +47,12 @@ export const useSkipSelection = (postcode: string, area: string): UseSkipSelecti
   });
 
   const selectSkip = useCallback((skip: Skip) => {
+    // Prevent unnecessary re-selection of the same skip
+    if (selectedSkip?.id === skip.id) {
+      return;
+    }
     selectSkipMutation.mutate(skip);
-  }, [selectSkipMutation]);
+  }, [selectSkipMutation, selectedSkip?.id]);
 
   const clearSelection = useCallback(() => {
     setSelectedSkip(null);
