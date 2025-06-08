@@ -8,9 +8,10 @@ A modern, pixel-perfect React application for selecting waste skip sizes with a 
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
 - **Accessibility**: Full keyboard navigation and ARIA support
 - **TypeScript**: Fully typed for better development experience
-- **Real-time Data**: Fetches skip data from WeWantWaste API
+- **Advanced Data Management**: TanStack Query for caching, background refetching, and optimistic updates
+- **Real-time Data**: Fetches skip data from WeWantWaste API with intelligent caching
 - **Loading States**: Beautiful skeleton loading animations
-- **Error Handling**: Graceful error handling with retry functionality
+- **Error Handling**: Graceful error handling with automatic retry and exponential backoff
 - **Professional Git History**: Clean commit messages and structured development
 
 ## 🛠️ Tech Stack
@@ -19,6 +20,7 @@ A modern, pixel-perfect React application for selecting waste skip sizes with a 
 - **Vite** for fast development and building
 - **HeroUI** for modern UI components
 - **Tailwind CSS** for styling
+- **TanStack Query** (React Query) for data fetching and caching
 - **Framer Motion** for animations
 
 ## 📦 Installation
@@ -50,14 +52,19 @@ src/
 │   ├── SkipCard.tsx     # Individual skip option card
 │   └── SkipGrid.tsx     # Grid layout with loading/error states
 ├── hooks/               # Custom React hooks
-│   └── useSkips.ts      # Hook for fetching skip data
+│   ├── useSkips.ts      # Hook for fetching skip data with React Query
+│   └── useSkipSelection.ts # Hook for managing selection state
 ├── pages/               # Page components
 │   └── SelectSkipPage.tsx # Main skip selection page
+├── services/            # API services
+│   └── skipApi.ts       # Skip data API service
 ├── types/               # TypeScript type definitions
 │   └── skip.ts          # Skip-related types
 ├── utils/               # Utility functions
 │   ├── constants.ts     # App constants and configuration
-│   └── formatCurrency.ts # Currency formatting utilities
+│   ├── formatCurrency.ts # Currency formatting utilities
+│   ├── mockData.ts      # Mock data for development
+│   └── queryClient.ts   # React Query client configuration
 └── App.tsx              # Main app component
 ```
 
@@ -76,9 +83,16 @@ src/
 - **Scale**: 8px base spacing scale
 - **Responsive**: Adaptive spacing for different screen sizes
 
-## 🔧 API Integration
+## 🔧 API Integration & Data Management
 
-The app fetches skip data from:
+### TanStack Query Features
+- **Intelligent Caching**: Data stays fresh for 5 minutes, cached for 10 minutes
+- **Automatic Retries**: Exponential backoff with smart retry logic
+- **Background Refetching**: Updates data when window regains focus or network reconnects
+- **Optimistic Updates**: Immediate UI feedback for better UX
+- **Development Tools**: Built-in DevTools for debugging queries
+
+### API Endpoint
 ```
 https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft
 ```
@@ -93,6 +107,16 @@ interface Skip {
   vat: number;
   allowed_on_road: boolean;
   // ... other properties
+}
+```
+
+### Query Keys
+```typescript
+// Organized query keys for cache management
+skipQueryKeys = {
+  all: ['skips'],
+  byLocation: (postcode: string, area: string) => 
+    ['skips', 'by-location', { postcode, area }]
 }
 ```
 
@@ -151,8 +175,10 @@ The project follows a professional git workflow with:
 
 ### 4. Loading & Error States
 - Skeleton loading animations during data fetch
-- Error handling with retry functionality
+- Intelligent error handling with automatic retry and exponential backoff
+- Background refetching with stale-while-revalidate pattern
 - Empty state handling
+- React Query DevTools integration for debugging
 
 ### 5. Continue Button
 - Disabled state until skip is selected
@@ -165,6 +191,26 @@ The project follows a professional git workflow with:
 - **Smooth Animations**: 200ms transitions for all interactive elements
 - **Visual Hierarchy**: Clear typography and spacing hierarchy
 - **Professional Polish**: Attention to micro-interactions and details
+
+## 🚀 React Query Benefits
+
+### Performance Optimizations
+- **Data Caching**: Reduces API calls and improves load times
+- **Background Updates**: Fresh data without blocking UI
+- **Deduplication**: Multiple components requesting same data share single request
+- **Optimistic Updates**: Instant feedback for better perceived performance
+
+### Developer Experience
+- **DevTools Integration**: Inspect queries, mutations, and cache in real-time
+- **Automatic Error Boundaries**: Graceful error handling with retry logic
+- **TypeScript Support**: Fully typed queries and mutations
+- **Centralized Configuration**: Single source of truth for all data fetching
+
+### User Experience
+- **Offline Support**: Cached data available when offline
+- **Smart Retries**: Automatic retry with exponential backoff
+- **Loading States**: Granular loading states for better UX
+- **Stale While Revalidate**: Show cached data while fetching fresh data
 
 ## 📄 License
 

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Breadcrumbs, BreadcrumbItem } from '@heroui/react';
-import type { Skip } from '../types/skip';
 import { useSkips } from '../hooks/useSkips';
+import { useSkipSelection } from '../hooks/useSkipSelection';
 import { ProgressBar } from '../components/ProgressBar';
 import { SkipGrid } from '../components/SkipGrid';
 
@@ -15,12 +15,11 @@ const steps = [
 ];
 
 export const SelectSkipPage: React.FC = () => {
-  const { skips, loading, error } = useSkips();
-  const [selectedSkip, setSelectedSkip] = useState<Skip | null>(null);
-
-  const handleSelectSkip = (skip: Skip) => {
-    setSelectedSkip(skip);
-  };
+  const postcode = 'NR32';
+  const area = 'Lowestoft';
+  
+  const { skips, loading, error } = useSkips(postcode, area);
+  const { selectedSkip, selectSkip, isSelecting } = useSkipSelection(postcode, area);
 
   const handleContinue = () => {
     if (selectedSkip) {
@@ -68,7 +67,7 @@ export const SelectSkipPage: React.FC = () => {
           <SkipGrid
             skips={skips}
             selectedSkip={selectedSkip}
-            onSelectSkip={handleSelectSkip}
+            onSelectSkip={selectSkip}
             loading={loading}
             error={error}
           />
@@ -83,7 +82,8 @@ export const SelectSkipPage: React.FC = () => {
                 : 'bg-gray-600 text-gray-400 cursor-not-allowed'
             }`}
             size="lg"
-            isDisabled={!selectedSkip}
+            isDisabled={!selectedSkip || isSelecting}
+            isLoading={isSelecting}
             onPress={handleContinue}
             aria-label={
               selectedSkip
@@ -91,7 +91,7 @@ export const SelectSkipPage: React.FC = () => {
                 : 'Select a skip to continue'
             }
           >
-            Continue →
+            {isSelecting ? 'Selecting...' : 'Continue →'}
           </Button>
         </div>
 
