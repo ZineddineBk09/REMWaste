@@ -7,8 +7,10 @@ A modern, pixel-perfect React application for selecting waste skip sizes with a 
 ### Desktop Experience
 ![Desktop View](./public/screenshots/Screenshot%202025-06-08%20at%2014.42.43.png)
 
-### Mobile Experience
-![Mobile View](./public/screenshots/Screenshot%202025-06-08%20at%2014.42.28.png)
+### Mobile Experience  
+<img src="./public/screenshots/Screenshot%202025-06-08%20at%2014.42.28.png" alt="Mobile View" width="300" />
+
+*Mobile-optimized responsive design with 1-column layout*
 
 ## 🚀 Features
 
