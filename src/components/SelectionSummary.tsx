@@ -1,8 +1,11 @@
-import React from 'react';
-import { Button, Card, CardBody } from '@heroui/react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import type { Skip } from '../types/skip';
-import { formatCurrency, calculateTotalPriceWithVat } from '../utils/formatCurrency';
+import React from "react";
+import { Button, Card, CardBody } from "@heroui/react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import type { Skip } from "../types/skip";
+import {
+  formatCurrency,
+  calculateTotalPriceWithVat,
+} from "../utils/formatCurrency";
 
 interface SelectionSummaryProps {
   selectedSkip: Skip | null;
@@ -19,13 +22,15 @@ export const SelectionSummary: React.FC<SelectionSummaryProps> = ({
 }) => {
   if (!selectedSkip) return null;
 
-  const totalPrice = calculateTotalPriceWithVat(selectedSkip.price_before_vat, selectedSkip.vat);
+  const totalPrice = calculateTotalPriceWithVat(
+    selectedSkip.price_before_vat,
+    selectedSkip.vat
+  );
 
   return (
     <>
       {/* Overlay to add padding at bottom of page */}
       <div className="h-32 md:h-24" />
-      
       {/* Fixed Bottom Bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t border-gray-700 animate-in slide-in-from-bottom-full duration-300">
         <Card className="rounded-none shadow-xl bg-slate-900 border-t border-gray-600">
@@ -45,12 +50,10 @@ export const SelectionSummary: React.FC<SelectionSummaryProps> = ({
                   <div className="text-xl font-bold text-primary-300">
                     {formatCurrency(totalPrice)}
                   </div>
-                  <div className="text-xs text-gray-400">
-                    inc. VAT
-                  </div>
+                  <div className="text-xs text-gray-400">inc. VAT</div>
                 </div>
               </div>
-              
+
               <div className="flex gap-3">
                 {onBack && (
                   <Button
@@ -70,7 +73,7 @@ export const SelectionSummary: React.FC<SelectionSummaryProps> = ({
                   isLoading={isLoading}
                   isDisabled={isLoading}
                 >
-                  {isLoading ? 'Processing...' : 'Continue'}
+                  {isLoading ? "Processing..." : "Continue"}
                 </Button>
               </div>
             </div>
@@ -93,7 +96,7 @@ export const SelectionSummary: React.FC<SelectionSummaryProps> = ({
                   <div className="text-xs text-gray-400">inc. VAT</div>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 {onBack && (
                   <Button
@@ -113,7 +116,7 @@ export const SelectionSummary: React.FC<SelectionSummaryProps> = ({
                   isLoading={isLoading}
                   isDisabled={isLoading}
                 >
-                  {isLoading ? 'Processing...' : 'Continue'}
+                  {isLoading ? "Processing..." : "Continue"}
                 </Button>
               </div>
             </div>
@@ -121,8 +124,9 @@ export const SelectionSummary: React.FC<SelectionSummaryProps> = ({
             {/* Disclaimer Text */}
             <div className="mt-3 pt-3 border-t border-gray-700">
               <p className="text-xs text-gray-500 text-center leading-relaxed">
-                Imagery and information shown throughout this website may not reflect the exact shape or size specification, 
-                colours may vary, options and/or accessories may be featured at additional cost.
+                Imagery and information shown throughout this website may not
+                reflect the exact shape or size specification, colours may vary,
+                options and/or accessories may be featured at additional cost.
               </p>
             </div>
           </CardBody>
@@ -130,4 +134,4 @@ export const SelectionSummary: React.FC<SelectionSummaryProps> = ({
       </div>
     </>
   );
-}; 
+};

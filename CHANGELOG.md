@@ -58,7 +58,7 @@ All notable changes to this project will be documented in this file.
 - **Build Optimization**: Production-ready with Vite bundling
 
 ### 🎨 Design System
-- **Brand Colors**: REMWaste yellow (#FFD400) and eco-green (#2E7D32)
+- **Brand Colors**: WeWantWaste yellow (#FFD400) and eco-green (#2E7D32)
 - **Dark Theme**: Modern gradient background
 - **Typography**: Inter font with clear hierarchy
 - **Spacing**: Consistent 8px scale

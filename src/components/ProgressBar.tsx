@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   MapPin, 
   Trash2, 
-  ShoppingCart, 
+  LandPlot, 
   FileCheck, 
   Calendar, 
   CreditCard,
@@ -24,7 +24,7 @@ interface ProgressBarProps {
 const stepIcons = {
   'postcode': MapPin,
   'waste-type': Trash2,
-  'select-skip': ShoppingCart,
+  'select-skip': LandPlot,
   'permit-check': FileCheck,
   'choose-date': Calendar,
   'payment': CreditCard,
@@ -37,7 +37,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ steps, className = '' 
       <div className={`hidden md:block w-full max-w-4xl mx-auto mb-8 ${className}`}>
         <div className="flex items-center justify-center space-x-4 lg:space-x-8">
           {steps.map((step, index) => {
-            const IconComponent = stepIcons[step.id as keyof typeof stepIcons] || ShoppingCart;
+            const IconComponent = stepIcons[step.id as keyof typeof stepIcons] || LandPlot;
             
             return (
               <React.Fragment key={step.id}>
@@ -80,7 +80,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ steps, className = '' 
       <div className={`md:hidden fixed left-0 top-0 h-full w-16 bg-slate-800 border-r border-gray-700 z-40 ${className}`}>
         <div className="flex flex-col items-center py-4 space-y-4">
           {steps.map((step, index) => {
-            const IconComponent = stepIcons[step.id as keyof typeof stepIcons] || ShoppingCart;
+            const IconComponent = stepIcons[step.id as keyof typeof stepIcons] || LandPlot;
             
             return (
               <div key={step.id} className="flex flex-col items-center">

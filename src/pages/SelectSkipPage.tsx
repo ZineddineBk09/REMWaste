@@ -104,7 +104,7 @@ export const SelectSkipPage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Progress Bar - Mobile Sidebar & Desktop Horizontal */}
 
-      <div className="container mx-auto px-4 py-8 md:pl-4 pl-20 pb-40 md:pb-32">
+      <div className="container mx-auto px-4 py-8 md:pl-4 pl-20 pb-28 md:pb-16">
         {/* Breadcrumbs */}
         <div className="mb-6">
           <Breadcrumbs
@@ -152,7 +152,7 @@ export const SelectSkipPage: React.FC = () => {
         </div>
 
         {/* Skip Grid */}
-        <div className="max-w-6xl mx-auto mb-8">
+        <div className="max-w-7xl mx-auto">
           <SkipGrid
             skips={skips}
             selectedSkip={selectedSkip}
@@ -162,16 +162,8 @@ export const SelectSkipPage: React.FC = () => {
           />
         </div>
 
-        {/* Selection Summary Bottom Bar */}
-        <SelectionSummary
-          selectedSkip={selectedSkip}
-          onBack={handleBack}
-          onContinue={handleContinue}
-          isLoading={isSelecting}
-        />
-
         {/* Additional Info */}
-        <div className="mt-12 text-center text-gray-400 text-sm">
+        <div className="mt-8 text-center text-gray-400 text-sm">
           <p className="mt-1">
             Need help choosing?{" "}
             <span className="text-primary-300 cursor-pointer hover:underline">
@@ -179,6 +171,14 @@ export const SelectSkipPage: React.FC = () => {
             </span>
           </p>
         </div>
+
+        {/* Selection Summary Bottom Bar */}
+        <SelectionSummary
+          selectedSkip={selectedSkip}
+          onBack={handleBack}
+          onContinue={handleContinue}
+          isLoading={isSelecting}
+        />
       </div>
     </div>
   );

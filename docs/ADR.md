@@ -201,7 +201,7 @@ export const fetchSkips = async (params: FetchSkipsParams): Promise<Skip[]> => {
 ```typescript
 // Easy to add multiple waste companies
 const skipApi = {
-  REMWaste: () => fetchFromREMWaste(),
+  wewantwaste: () => fetchFromWeWantWaste(),
   citycouncil: () => fetchFromCityCouncil(),
   privatewaste: () => fetchFromPrivateWaste()
 };
@@ -253,7 +253,7 @@ Use **Tailwind CSS** with **HeroUI** component library.
 ```typescript
 // Easy white-label customization
 const theme = {
-  REMWaste: { primary: '#FFD400', secondary: '#2E7D32' },
+  wewantwaste: { primary: '#FFD400', secondary: '#2E7D32' },
   citycouncil: { primary: '#1E40AF', secondary: '#059669' },
   enterprise: { primary: '#7C3AED', secondary: '#DC2626' }
 };
