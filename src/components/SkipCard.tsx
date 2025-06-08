@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardBody, CardFooter, Image, Chip, Button } from '@heroui/react';
-import { SkipCardProps } from '../types/skip';
+import type { SkipCardProps } from '../types/skip';
 import { formatCurrency, calculateTotalPriceWithVat } from '../utils/formatCurrency';
 import { SKIP_IMAGES } from '../utils/constants';
 

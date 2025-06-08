@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Breadcrumbs, BreadcrumbItem } from '@heroui/react';
-import { Skip } from '../types/skip';
+import type { Skip } from '../types/skip';
 import { useSkips } from '../hooks/useSkips';
 import { ProgressBar } from '../components/ProgressBar';
 import { SkipGrid } from '../components/SkipGrid';
@@ -15,7 +15,7 @@ const steps = [
 ];
 
 export const SelectSkipPage: React.FC = () => {
-  const { skips, loading, error, refetch } = useSkips();
+  const { skips, loading, error } = useSkips();
   const [selectedSkip, setSelectedSkip] = useState<Skip | null>(null);
 
   const handleSelectSkip = (skip: Skip) => {
@@ -30,9 +30,7 @@ export const SelectSkipPage: React.FC = () => {
     }
   };
 
-  const handleRetry = () => {
-    refetch();
-  };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">

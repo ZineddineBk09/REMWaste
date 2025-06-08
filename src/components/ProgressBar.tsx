@@ -1,5 +1,4 @@
 import React from 'react';
-import { Chip } from '@heroui/react';
 
 interface Step {
   id: string;

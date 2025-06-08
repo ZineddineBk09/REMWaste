@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Skip, UseSkipsReturn } from '../types/skip';
+import type { Skip, UseSkipsReturn } from '../types/skip';
 import { API_BASE_URL } from '../utils/constants';
 
 export const useSkips = (postcode = 'NR32', area = 'Lowestoft'): UseSkipsReturn => {

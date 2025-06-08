@@ -1,6 +1,6 @@
 import React from 'react';
 import { Skeleton, Card, CardBody, Button, Alert } from '@heroui/react';
-import { SkipGridProps } from '../types/skip';
+import type { SkipGridProps } from '../types/skip';
 import { SkipCard } from './SkipCard';
 
 const SkipCardSkeleton: React.FC = () => (
