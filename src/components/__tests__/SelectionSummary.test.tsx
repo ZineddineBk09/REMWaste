@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '../../test/utils';
 import userEvent from '@testing-library/user-event';
 import { SelectionSummary } from '../SelectionSummary';
@@ -7,10 +7,18 @@ import type { Skip } from '../../types/skip';
 const mockSkip: Skip = {
   id: 1,
   size: 6,
+  hire_period_days: 7,
+  transport_cost: null,
+  per_tonne_cost: null,
   price_before_vat: 150,
   vat: 20,
-  hire_period_days: 7,
+  postcode: "NR32",
+  area: "",
+  forbidden: false,
+  created_at: "2025-04-03T13:51:46.897146",
+  updated_at: "2025-04-07T13:16:52.813",
   allowed_on_road: true,
+  allows_heavy_waste: true,
 };
 
 describe('SelectionSummary', () => {
@@ -171,10 +179,18 @@ describe('SelectionSummary', () => {
     const skipWithDifferentVAT: Skip = {
       id: 2,
       size: 8,
+      hire_period_days: 14,
+      transport_cost: null,
+      per_tonne_cost: null,
       price_before_vat: 100,
       vat: 25, // 25% VAT
-      hire_period_days: 14,
+      postcode: "NR32",
+      area: "",
+      forbidden: false,
+      created_at: "2025-04-03T13:51:46.897146",
+      updated_at: "2025-04-07T13:16:52.813",
       allowed_on_road: false,
+      allows_heavy_waste: true,
     };
 
     render(
