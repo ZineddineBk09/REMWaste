@@ -140,6 +140,35 @@ skipQueryKeys = {
 - `yarn build` - Build for production
 - `yarn preview` - Preview production build
 - `yarn lint` - Run ESLint
+- `yarn test` - Run tests in watch mode
+- `yarn test:run` - Run tests once
+- `yarn test:coverage` - Run tests with coverage report
+- `yarn test:ui` - Run tests with interactive UI
+
+## 🧪 Testing
+
+The project includes comprehensive testing with **Vitest** and **React Testing Library**:
+
+### Testing Stack
+- **Vitest**: Fast unit test framework with native ES modules support
+- **React Testing Library**: User-centric testing utilities
+- **@testing-library/jest-dom**: Custom DOM matchers
+- **@testing-library/user-event**: Realistic user interaction simulation
+
+### Test Coverage
+- **Components**: SkipCard, ProgressBar, SelectionSummary
+- **Hooks**: useUrlState, useSkipSelection
+- **User Interactions**: Click, keyboard navigation, form submission
+- **Accessibility**: ARIA attributes, keyboard navigation, screen reader support
+- **Responsive Behavior**: Mobile/desktop layout testing
+
+### Testing Philosophy
+- **User-centric**: Test what users see and interact with
+- **Accessibility-first**: Verify ARIA attributes and keyboard navigation
+- **Integration-focused**: Test components with their providers
+- **Behavior-driven**: Focus on behavior over implementation details
+
+See [Testing Documentation](./docs/TESTING.md) for detailed testing guidelines and patterns.
 
 ## 🔄 Git Workflow
 
