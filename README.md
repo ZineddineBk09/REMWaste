@@ -2,6 +2,14 @@
 
 A modern, pixel-perfect React application for selecting waste skip sizes with a beautiful UI built using HeroUI and Tailwind CSS.
 
+## 📸 Screenshots
+
+### Desktop Experience
+![Desktop View](./public/screenshots/Screenshot%202025-06-08%20at%2014.42.43.png)
+
+### Mobile Experience
+![Mobile View](./public/screenshots/Screenshot%202025-06-08%20at%2014.42.28.png)
+
 ## 🚀 Features
 
 - **Modern UI/UX**: Built with HeroUI components and Tailwind CSS
@@ -12,7 +20,7 @@ A modern, pixel-perfect React application for selecting waste skip sizes with a 
 - **Real-time Data**: Fetches skip data from WeWantWaste API with intelligent caching
 - **Loading States**: Beautiful skeleton loading animations
 - **Error Handling**: Graceful error handling with automatic retry and exponential backoff
-- **Professional Git History**: Clean commit messages and structured development
+- **Clean Git History**: Clean commit messages and structured development
 
 ## 🛠️ Tech Stack
 
@@ -82,7 +90,7 @@ src/
 ## 🎨 Design System
 
 ### Colors
-- **Primary**: `#FFD400` (WeWantWaste yellow)
+- **Primary**: `#FFD400` (Waste yellow)
 - **Secondary**: `#2E7D32` (Eco-green)
 - **Background**: Dark gradient from slate-900 to slate-800
 
@@ -183,7 +191,7 @@ See [Testing Documentation](./docs/TESTING.md) for detailed testing guidelines a
 
 ## 🔄 Git Workflow
 
-The project follows a professional git workflow with:
+The project follows a clean git workflow with:
 - Conventional commit messages
 - Feature-based commits
 - Clean commit history
