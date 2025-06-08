@@ -44,7 +44,7 @@ export const SelectSkipPage: React.FC = () => {
             }}
           >
             <BreadcrumbItem>Home</BreadcrumbItem>
-            <BreadcrumbItem>Book Skip</BreadcrumbItem>
+            <BreadcrumbItem className='text-yellow-400'>Book Skip</BreadcrumbItem>
             <BreadcrumbItem isCurrent>Select Skip Size</BreadcrumbItem>
           </Breadcrumbs>
         </div>
