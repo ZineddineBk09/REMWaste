@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { Skip, UseSkipsReturn } from '../types/skip';
 import { API_BASE_URL } from '../utils/constants';
+import { mockSkips } from '../utils/mockData';
 
 export const useSkips = (postcode = 'NR32', area = 'Lowestoft'): UseSkipsReturn => {
   const [skips, setSkips] = useState<Skip[]>([]);
@@ -29,6 +30,10 @@ export const useSkips = (postcode = 'NR32', area = 'Lowestoft'): UseSkipsReturn 
       const errorMessage = err instanceof Error ? err.message : 'Failed to fetch skip data';
       setError(errorMessage);
       console.error('Error fetching skips:', err);
+      
+      // Use mock data as fallback
+      console.log('Using mock data as fallback');
+      setSkips(mockSkips);
     } finally {
       setLoading(false);
     }
