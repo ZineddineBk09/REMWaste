@@ -47,25 +47,36 @@ yarn dev
 
 ```
 src/
-├── components/          # Reusable UI components
-│   ├── ProgressBar.tsx  # Step indicator component
-│   ├── SkipCard.tsx     # Individual skip option card
-│   └── SkipGrid.tsx     # Grid layout with loading/error states
-├── hooks/               # Custom React hooks
-│   ├── useSkips.ts      # Hook for fetching skip data with React Query
-│   └── useSkipSelection.ts # Hook for managing selection state
-├── pages/               # Page components
-│   └── SelectSkipPage.tsx # Main skip selection page
-├── services/            # API services
-│   └── skipApi.ts       # Skip data API service
-├── types/               # TypeScript type definitions
-│   └── skip.ts          # Skip-related types
-├── utils/               # Utility functions
-│   ├── constants.ts     # App constants and configuration
-│   ├── formatCurrency.ts # Currency formatting utilities
-│   ├── mockData.ts      # Mock data for development
-│   └── queryClient.ts   # React Query client configuration
-└── App.tsx              # Main app component
+├── components/              # Reusable UI components
+│   ├── __tests__/          # Component tests
+│   │   ├── ProgressBar.test.tsx
+│   │   ├── SelectionSummary.test.tsx
+│   │   └── SkipCard.test.tsx
+│   ├── ProgressBar.tsx     # Step indicator with icons
+│   ├── SelectionSummary.tsx # Bottom fixed selection bar
+│   ├── SkipCard.tsx        # Individual skip option card
+│   └── SkipGrid.tsx        # Grid layout with loading/error states
+├── hooks/                  # Custom React hooks
+│   ├── __tests__/          # Hook tests
+│   │   └── useUrlState.test.tsx
+│   ├── useSkips.ts         # Hook for fetching skip data with React Query
+│   ├── useSkipSelection.ts # Hook for managing selection state
+│   └── useUrlState.ts      # Hook for URL state synchronization
+├── pages/                  # Page components
+│   └── SelectSkipPage.tsx  # Main skip selection page
+├── services/               # API services
+│   └── skipApi.ts          # Skip data API service with React Query
+├── test/                   # Testing utilities and setup
+│   ├── setup.ts           # Global test configuration and mocks
+│   └── utils.tsx          # Custom render utilities with providers
+├── types/                  # TypeScript type definitions
+│   └── skip.ts            # Skip-related types and interfaces
+├── utils/                  # Utility functions
+│   ├── constants.ts       # App constants and configuration
+│   ├── formatCurrency.ts  # Currency formatting utilities
+│   ├── mockData.ts        # Mock data for development and testing
+│   └── queryClient.ts     # React Query client configuration
+└── App.tsx                 # Main app component
 ```
 
 ## 🎨 Design System
